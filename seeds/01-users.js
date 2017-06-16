@@ -1,13 +1,19 @@
-
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex.raw('TRUNCATE users RESTART IDENTITY CASCADE;')
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('users').insert([
+        {
+          email: 'fahad@hotmail.com',
+          password: '1864305'
+        },
+        {
+          email: 'adam@whatevs.com',
+          password: 'password'
+        },
+        {
+          email: 'cj@gmail.com',
+          password: 'youaregr8'
+        }
       ]);
     });
 };

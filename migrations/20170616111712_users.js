@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.text('user').notNullable();
     table.text('email').unique().notNullable();
     table.text('password').notNullable();
-    table.dateTime('created_at').notNullable();
+    table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
     table.boolean('is_active').notNullable().default(true);
   })
 };
