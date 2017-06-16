@@ -4,6 +4,6 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'localhost://pg/user_game_db'
+    connection: 'postgresql://localhost/user_game_db'
   }
 }
